@@ -1,0 +1,107 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-main);
+}
+
+.auth-card {
+  background-color: #F5F5F5;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  padding: 2.75rem 4rem;
+  width: 100%;
+  max-width: 482px;
+  margin: 0 1rem;
+  box-sizing: border-box;
+}
+
+.auth-title {
+  font-family: var(--font-heading);
+  text-align: center;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.auth-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.auth-label {
+  font-family: var(--font-primary);
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.auth-input {
+  font-family: var(--font-primary);
+  height: 3.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(102, 102, 102, 0.35);
+  background-color: transparent;
+  padding: 0 1rem;
+  outline: none;
+  transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: var(--color-accent);
+  }
+}
+
+.auth-error-text {
+  font-family: var(--font-primary);
+  color: var(--color-danger);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.auth-btn {
+  font-family: var(--font-primary);
+  flex: 1;
+  padding: 0.75rem 0;
+  border-radius: 9999px;
+  color: var(--text-white);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.auth-btn-login {
+  background-color: var(--color-accent);
+}
+
+.auth-btn-register {
+  background-color: var(--bg-dark-glass);
+}

@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@p3d-hub/database": ["libs/database/src/index.ts"],
+      "@p3d-hub/auth": ["libs/auth/src/index.ts"],
+      "@p3d-hub/minio": ["libs/minio/src/index.ts"],
+      "@p3d-hub/redis": ["libs/redis/src/index.ts"],
+      "@p3d-hub/model-management": ["libs/model-management/src/index.ts"],
+      "@p3d-hub/user": ["libs/user/src/index.ts"],
+      "@p3d-hub/shared-types": ["libs/shared-types/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

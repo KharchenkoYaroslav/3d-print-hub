@@ -1,0 +1,416 @@
+@use '../shared-model-styles.module.scss' as *;
+
+.model-title-input {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 2px 8px;
+  background: var(--bg-dark-transparent);
+  width: 100%;
+  max-width: 500px;
+}
+
+.edit-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.edit-photos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+}
+
+.edit-photo-card {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  gap: 8px;
+  background: var(--bg-dark-transparent);
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.edit-photo-preview {
+  width: 100%;
+  height: 94px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.main-photo-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-white);
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.edit-photo-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-photo-placeholder {
+  display: flex;
+  width: 140px;
+  height: 146px;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  background-color: var(--bg-dark-transparent);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-accent);
+  }
+
+  span {
+    color: var(--text-white);
+    font-weight: bold;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.edit-textarea {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--text-white);
+  line-height: 1.4;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background-color: var(--bg-dark-transparent);
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-input {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--text-white);
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background-color: var(--bg-dark-transparent);
+  flex: 1;
+  max-width: 300px;
+}
+
+.edit-textarea,
+.edit-input,
+.model-title-input {
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    background-color: var(--bg-dark-heavy);
+  }
+}
+
+.number-input { max-width: 100px; }
+.input-with-unit { display: flex; align-items: center; gap: 8px; }
+.unit-text { font-family: var(--font-mono); font-size: 16px; color: #bbbbbb; }
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--text-white);
+}
+
+.edit-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+.file-actions-group {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.file-row.upload-row {
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+  background-color: var(--bg-dark-heavy);
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 2;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.upload-file-btn {
+  background: none;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: #cccccc;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--text-white);
+    background-color: rgba(59, 130, 246, 0.2);
+  }
+}
+
+.edit-category-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+  padding: 6px 8px 6px 16px;
+}
+
+.remove-category-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 24px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: -1px;
+
+  &:hover {
+    color: var(--color-danger);
+    background-color: rgba(239, 68, 68, 0.15);
+    transform: scale(1.05);
+  }
+}
+
+.custom-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.category-add-btn {
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  background-color: var(--bg-dark-transparent);
+
+  &:hover {
+    border-color: var(--color-accent);
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--text-white);
+  }
+}
+
+.custom-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background-color: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 20;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.custom-dropdown-item {
+  background: transparent;
+  border: none;
+  color: #dddddd;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  text-align: left;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: var(--text-white);
+  }
+}
+
+.danger-zone {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.danger-label {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--color-danger);
+  font-weight: bold;
+}
+
+.delete-main-btn {
+  background-color: transparent;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(239, 68, 68, 0.15);
+  }
+}
+
+
+
+.confirmation-panel {
+  background-color: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  animation: slideDown 0.3s ease forwards;
+
+  &.closing {
+    animation: slideUp 0.3s ease forwards;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+.confirmation-text {
+  font-family: var(--font-ui);
+  color: var(--text-white);
+  font-size: 14px;
+  line-height: 1.4;
+
+  strong {
+    color: var(--color-danger);
+    user-select: all;
+  }
+}
+
+.confirmation-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.confirm-input {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--text-white);
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background-color: var(--bg-dark-transparent);
+  flex: 1;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+    background-color: var(--bg-dark-heavy);
+  }
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.confirm-btn {
+  background-color: var(--color-danger);
+  color: var(--text-white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, background-color 0.2s;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-danger-hover);
+  }
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: var(--text-white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

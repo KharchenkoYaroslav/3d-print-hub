@@ -1,101 +1,82 @@
-# P3dHub
+# 🔷 3D Print Hub
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+This is a hub platform for publishing and sharing your 3D models and their specifications.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+## 📍 What are the objectives of this project?
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+The main objective of this project is to explore data storage methods other than SQL, including the document-oriented MongoDB, the in-memory Redis, and the S3-compatible file storage system MinIO.
 
-## Run tasks
+## 📦 Technologies
 
-To run the dev server for your app, use:
+- `TypeScript`
+- `Nx`
+- `NestJS`
+- `MongoDB`
+- `MinIO/S3`
+- `Redis`
+- `Swagger`
+- `Docker`
+- `Vite`
+- `React`
+- `SCSS`
 
-```sh
-npx nx serve server
+## 🚀 Features
+
+- **Visual Catalog**: Users can explore a clean, paginated grid of available 3D models.
+- **Category Filtering**: A convenient sidebar allows users to filter models by specific categories.
+- **Community-Driven Rankings**: The platform highlights the most popular models based on community likes.
+- **Creator Portfolios**: Users can view a specific author's page to see their entire collection of uploaded models.
+
+## 🏗️ System Architecture & Infrastructure
+
+The project is structured as a monorepo managed by **Nx**, integrating the frontend client, backend server, and shared modules. Databases and file storage are deployed and managed centrally using **Docker Compose**.
+
+- **Client (`apps/client`)**: A SPA that handles the user interface.
+- **Server (`apps/server`)**: A REST API. Delegates core business logic and data operations to libraries.
+- **Libraries (`libs/*`)**: Isolated modules containing the backend logic, infrastructure integrations, and shared types.
+- **MongoDB**: The primary NoSQL database.
+- **Redis**: An in-memory data store for the dynamic ranking system.
+- **MinIO**: An S3-compatible object storage server for saving physical files.
+
+## 📚 API Documentation
+
+The project has auto-generated Swagger documentation available at url: `http://localhost:{SERVER_PORT}/api/docs`.
+
+## ℹ️ Environment
+
+```
+# Service Configuration & Ports
+PORT=3000
+VITE_PORT=3000
+VITE_API_FILE_URL=http://localhost:9000/main/
+
+# Database Connection URLs
+MONGO_URI=mongodb://your_db_user:your_db_password@localhost:27017/your_db_name?authSource=admin
+REDIS_URI=redis://localhost:6379
+
+# MinIO Configuration 
+MINIO_ENDPOINT="localhost"
+MINIO_PORT=9000
+MINIO_CONSOLE_PORT=8000
+MINIO_USER="your_minio_user"
+MINIO_PASSWORD="your_secure_minio_password"
+
+# JWT Configuration
+JWT_ACCESS_SECRET=your_jwt_access_secret_key_here
+JWT_REFRESH_SECRET=your_jwt_refresh_secret_key_here
 ```
 
-To create a production bundle:
+## 🚦 Running the Project
 
-```sh
-npx nx build server
-```
+1. Clone the repository
+2. Install dependencies: `npm ci`
+3. Configure environment variables:
+   - Create a `.env` file in the root directory.
+   - Add the necessary variables as defined in the **Environment** section.
+4. Start Docker services: `docker-compose up -d`
+5. Start the applications: `npx nx run-many --target=serve --all --parallel=2`
+6. Open `http://localhost:4200` in your browser
+> [!TIP]
+> Highly recommend installing the Nx Console extension for VS Code.
 
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project server
-```
-
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/nest:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/node:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
-```
-
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
-
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 🎞️ Preview

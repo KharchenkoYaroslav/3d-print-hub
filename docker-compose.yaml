@@ -1,0 +1,40 @@
+services:
+  minio:
+    image: minio/minio:latest
+    restart: always
+    ports:
+      - "${MINIO_PORT}:${MINIO_PORT}"
+      - "${MINIO_CONSOLE_PORT}:${MINIO_CONSOLE_PORT}"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+    command: server /data --console-address ":${MINIO_CONSOLE_PORT}" --address ":${MINIO_PORT}"
+    volumes:
+      - minio-data:/data
+  mongo:
+    image: mongo:latest
+    container_name: hub_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rootadmin
+      MONGO_INITDB_ROOT_PASSWORD: supersecretpassword
+    volumes:
+      - mongo-data:/data/db
+  redis:
+    image: redis:alpine
+    container_name: hub_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --save 60 1 --loglevel warning
+volumes:
+  minio-data:
+    driver: local
+  mongo-data:
+    driver: local
+  redis-data: 
+    driver: local

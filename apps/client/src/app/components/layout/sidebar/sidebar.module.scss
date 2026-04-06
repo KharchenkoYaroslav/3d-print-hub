@@ -1,0 +1,143 @@
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: var(--text-white);
+  border-radius: 0 24px 24px 0;
+  overflow: hidden;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+
+  &.closed {
+    width: 12px;
+    height: 70px;
+    border-radius: 0 24px 24px 0;
+    cursor: pointer;
+    background-color: rgba(245, 245, 245, 0.7);
+    transition: all 0.5s ease-in-out;
+  }
+
+  &.hover {
+    width: 24px;
+    height: 120px;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  &.open {
+    width: 340px;
+    height: calc(100vh - 200px);
+    border-radius: 0 25px 25px 0;
+    cursor: default;
+    padding: 15px 20px;
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    .menu-content {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.4s ease-in-out;
+      transition-delay: 0.4s;
+
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 5px, black calc(100% - 5px), transparent);
+      mask-image: linear-gradient(to bottom, transparent, black 5px, black calc(100% - 5px), transparent);
+
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.menu-content {
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  white-space: nowrap;
+
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  transition: opacity 0.2s ease-in-out;
+  transition-delay: 0s;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.menu-button {
+  background-color: var(--bg-dark-glass);
+  color: var(--text-white);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  white-space: normal;
+  position: relative;
+
+  &:first-child {
+    background-color: var(--color-accent);
+
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  &:hover {
+    background-color: var(--bg-dark-glass-hover);
+  }
+}
+
+.global-tooltip {
+  position: fixed;
+  left: 325px;
+  transform: translateY(-50%);
+  background-color: rgb(30, 41, 59);
+  color: var(--text-white);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  white-space: normal;
+  width: max-content;
+  max-width: 280px;
+  text-align: left;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease, left 0s ease 0.2s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+    border-width: 6px 6px 6px 0;
+    border-style: solid;
+    border-color: transparent rgb(30, 41, 59) transparent transparent;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease, visibility 0.2s ease, left 0.4s ease;
+  }
+}
