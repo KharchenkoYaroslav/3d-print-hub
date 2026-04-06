@@ -27,6 +27,19 @@ The main objective of this project is to explore data storage methods other than
 - **Community-Driven Rankings**: The platform highlights the most popular models based on community likes.
 - **Creator Portfolios**: Users can view a specific author's page to see their entire collection of uploaded models.
 
+## ℹ️ Known Limitations & Future Work
+
+> [!NOTE]
+> This is an educational project. While the learning goals are met, the following features would be required for a production-ready commercial release.
+
+- **Guest system**: allow users to view models without registering.
+
+- **Administration and blocking system**: required to ensure protection against malicious content.
+
+- **Advanced search and filtering system**: The project already allows models to be filtered by users and categories, but it is recommended that the search capabilities be expanded.
+
+- **More parameters**: more model and licensing parameters, as well as model previews, will allow users to obtain more information about a model and its usage permissions before downloading it.
+
 ## 🏗️ System Architecture & Infrastructure
 
 The project is structured as a monorepo managed by **Nx**, integrating the frontend client, backend server, and shared modules. Databases and file storage are deployed and managed centrally using **Docker Compose**.
