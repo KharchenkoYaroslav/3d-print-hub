@@ -32,7 +32,7 @@ export class Model {
   @Prop()
   description!: string;
 
-  @Prop({ type: Types.ObjectId, ref: 'User', required: true })
+  @Prop({ type: Types.ObjectId, ref: 'User', required: true, index: true })
   authorId!: Types.ObjectId;
 
   @Prop({ type: [{ type: Types.ObjectId, ref: 'Category' }], default: [] })
