@@ -80,3 +80,7 @@ JWT_REFRESH_SECRET=your_jwt_refresh_secret_key_here
 > Highly recommend installing the Nx Console extension for VS Code.
 
 ## 🎞️ Preview
+
+https://github.com/user-attachments/assets/2c5c8f40-264a-4a2b-900b-a8a96572bf83
+
+
