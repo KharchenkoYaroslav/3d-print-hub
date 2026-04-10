@@ -42,8 +42,6 @@ The main objective of this project is to explore data storage methods other than
 
 - **Storing likes in MongoDB**: adding background synchronisation of likes with the main database (for example, once a minute, etc.) will enable advanced searches and also change Redis’s role from being the sole repository for likes to acting as a cache, which in turn will allow Redis to be purged of rarely used data.
 
-Перекладено за допомогою DeepL (https://dee.pl/apps)
-
 ## 🏗️ System Architecture & Infrastructure
 
 The project is structured as a monorepo managed by **Nx**, integrating the frontend client, backend server, and shared modules. Databases and file storage are deployed and managed centrally using **Docker Compose**.
