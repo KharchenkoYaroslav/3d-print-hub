@@ -1,6 +1,6 @@
 # 🔷 3D Print Hub
 
-This is a hub platform for publishing and sharing your 3D models and their specifications.
+This is a hub platform for publishing and sharing 3D models and their specifications.
 
 ## 📍 What are the objectives of this project?
 
