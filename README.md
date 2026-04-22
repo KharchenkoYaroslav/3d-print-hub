@@ -1,6 +1,6 @@
 # 🔷 3D Print Hub
 
-This is a hub platform for publishing and sharing your 3D models and their specifications.
+This is a hub platform for publishing and sharing 3D models and their specifications.
 
 ## 📍 What are the objectives of this project?
 
@@ -39,6 +39,8 @@ The main objective of this project is to explore data storage methods other than
 - **Advanced search and filtering system**: The project already allows models to be filtered by users and categories, but it is recommended that the search capabilities be expanded.
 
 - **More parameters**: more model and licensing parameters, as well as model previews, will allow users to obtain more information about a model and its usage permissions before downloading it.
+
+- **Storing likes in MongoDB**: adding background synchronisation of likes with the main database (for example, once a minute, etc.) will enable advanced searches and also change Redis’s role from being the sole repository for likes to acting as a cache, which in turn will allow Redis to be purged of rarely used data.
 
 ## 🏗️ System Architecture & Infrastructure
 
