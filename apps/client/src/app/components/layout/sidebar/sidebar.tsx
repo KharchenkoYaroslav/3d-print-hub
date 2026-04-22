@@ -110,7 +110,8 @@ const Sidebar: React.FC = () => {
                 e.stopPropagation();
                 handleCategoryClick(item.id, index + 1);
               }}
-              onMouseEnter={(e) => handleMouseEnterButton(e, item.description)} 
+              onMouseEnter={(e) => handleMouseEnterButton(e, item.description)}
+              onMouseLeave={handleMouseLeaveButton}
             >
               {item.title}
             </button>
