@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ categoryName = "Всі категорі
               navigate(`/author-models/${verifyData.userId}`);
             }
           }}
-          title="Мої колекції"
+          title="Мої моделі"
         >
           <VscNewCollection />
         </div>
